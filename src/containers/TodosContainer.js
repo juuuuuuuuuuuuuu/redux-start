@@ -4,7 +4,7 @@ import React from 'react';
 import Todos from '../components/Todos';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as toodActions from '../store/modules/todo';
+import * as todoActions from '../store/modules/todo';
 
 const TodosContainer = props => {
   const handleChange = e => {
@@ -43,5 +43,5 @@ export default connect(
     input: todo.get('input'),
     todos: todo.get('todos')
   }),
-  dispatch => bindActionCreators(toodActions, dispatch)
+  dispatch => bindActionCreators(todoActions, dispatch)
 )(TodosContainer);
