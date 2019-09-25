@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, Map } from 'immutable';
+import { List, Record } from 'immutable';
 
 const TodoItem = ({ id, text, checked, onToggle, onRemove }) => (
   <li 
@@ -13,10 +13,9 @@ const TodoItem = ({ id, text, checked, onToggle, onRemove }) => (
 )
 
 const Todos = ({todos, input, onInsert, onToggle, onRemove, onChange }) => {
-  
   const todoItems = todos.map(
     todo => {
-      const { id, checked, text } = todo.toJS();
+      const { id, checked, text } = todo;
       return (
         <TodoItem
           id={id}
@@ -43,12 +42,12 @@ const Todos = ({todos, input, onInsert, onToggle, onRemove, onChange }) => {
 
 Todos.defaultProps = {
   todos: List([
-    Map({
+    Record({
       id: 0,
       text: '걷기',
       checked: false
     }),
-    Map({
+    Record({
       id: 1,
       text: '코딩하기',
       checked: true
